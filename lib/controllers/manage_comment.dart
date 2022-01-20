@@ -1,17 +1,20 @@
+import 'dart:ffi';
 
-import 'package:flutter/cupertino.dart';
-import 'package:images_picker/images_picker.dart';
+import 'package:info_with_comments/controllers/colors_manager.dart';
 import 'package:info_with_comments/dtos/comment_dto.dart';
 import 'package:info_with_comments/dtos/commnet_liks.dart';
 import 'package:info_with_comments/dtos/liked_users.dart';
 import 'package:info_with_comments/dtos/sub_comment_dto.dart';
 import 'package:info_with_comments/utils/colors_utils.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:images_picker/images_picker.dart';
 
 class ManageComment {
   List<CommentDTO> listOfComments = [];
   String? _userId;
   String? _userName;
   final TextEditingController textController = TextEditingController();
+
 
   bool replyYes = false;
   int mainCommnetId = -1;
@@ -306,4 +309,5 @@ class ManageComment {
   clearAllComment() {
     listOfComments = [];
   }
+
 }

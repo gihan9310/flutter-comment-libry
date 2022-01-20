@@ -53,7 +53,7 @@ class _CommentedImageZoomViewState extends State<CommentedImageZoomView> {
               top: 5,
               left: 10,
               child: InkWell(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: Icon(

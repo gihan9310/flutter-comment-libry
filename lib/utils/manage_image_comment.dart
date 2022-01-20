@@ -1,9 +1,10 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:images_picker/images_picker.dart';
 import 'package:info_with_comments/screens/widgets/custom_text.dart';
 import 'package:info_with_comments/utils/colors_utils.dart';
+import 'package:flutter/material.dart';
+import 'package:images_picker/images_picker.dart';
+import 'package:ndialog/ndialog.dart';
 
 class ManageImageComment {
 
@@ -12,7 +13,6 @@ class ManageImageComment {
     try {
       return await ImagesPicker.pick(count: 10, pickType: PickType.image);
     } catch (e) {
-      print("=============|||||||||| ${e}");
       return null;
     }
   }

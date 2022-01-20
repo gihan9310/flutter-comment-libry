@@ -120,11 +120,6 @@ class SubCommentDisplayBox extends StatelessWidget {
                     margin: EdgeInsets.all(2),
                     height: 50,
                     width: size.width,
-                    color: comment.commentImgUrl.length == 3
-                        ? index == 2
-                            ? Colors.amber
-                            : Colors.black87.withOpacity(0.5)
-                        : Colors.red,
                     child: TapImage(
                       comment: comment,
                       index: index,

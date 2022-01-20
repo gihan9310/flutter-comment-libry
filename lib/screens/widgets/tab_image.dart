@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:info_with_comments/dtos/sub_comment_dto.dart';
 import 'package:info_with_comments/screens/widgets/commented_image_zoom.dart';
 import 'package:info_with_comments/screens/widgets/custom_text.dart';
 import 'package:info_with_comments/screens/widgets/network_image.dart';
-import 'package:info_with_comments/screens/widgets/show_comment_image.dart';
 import 'package:info_with_comments/utils/colors_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -39,13 +40,87 @@ class TapImage extends StatelessWidget {
       },
       child: Stack(
         children: [
+          if (!comment.commentImgUrl[index].startsWith("http"))
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: Image.file(
+                    File(comment.commentImgUrl[index]),
+                    errorBuilder: (context, exception, stackTrace) {
+                      return Image.network(
+                        comment.commentImgUrl[index],
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: kBlack,
+                            alignment: Alignment.center,
+                            child:
+                                CustomText(text: "${comment.userDispalyName}"),
+                          );
+                        },
+                      );
+                    },
+                  ).image,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              height: 150,
+              width: comment.commentImgUrl.length == 1 ? size.width : 150,
+            ),
+          if (comment.commentImgUrl[index].startsWith("http"))
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: Image.network(
+                    comment.commentImgUrl[index],
+                    errorBuilder: (context, exception, stackTrace) {
+                      return Image.network(
+                        comment.commentImgUrl[index],
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: kBlack,
+                            alignment: Alignment.center,
+                            child:
+                                CustomText(text: "${comment.userDispalyName}"),
+                          );
+                        },
+                      );
+                    },
+                  ).image,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              height: 150,
+              width: comment.commentImgUrl.length == 1 ? size.width : 150,
+            ),
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: Image.file(
+                  File(comment.commentImgUrl[index]),
+                  errorBuilder: (context, exception, stackTrace) {
+                    return Image.network(
+                      comment.commentImgUrl[index],
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: kBlack,
+                          alignment: Alignment.center,
+                          child: CustomText(text: "${comment.userDispalyName}"),
+                        );
+                      },
+                    );
+                  },
+                ).image,
+                fit: BoxFit.cover,
+              ),
+            ),
             height: 150,
             width: comment.commentImgUrl.length == 1 ? size.width : 150,
-            child: NetworkImageWithErrorBuilder(
-                userImgUrl: comment.commentImgUrl.length > 0
-                    ? comment.commentImgUrl[index]
-                    : null),
           ),
           if ((index == 1 && comment.commentImgUrl.length == 3) ||
               (index == 3 && comment.commentImgUrl.length > 4))
@@ -54,8 +129,9 @@ class TapImage extends StatelessWidget {
                 width: 50,
                 height: 30,
                 decoration: BoxDecoration(
-                    color: kBlack.withOpacity(0.6),
-                    borderRadius: BorderRadius.circular(10)),
+                  color: kBlack.withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: Center(
                   child: CustomText(
                     text:

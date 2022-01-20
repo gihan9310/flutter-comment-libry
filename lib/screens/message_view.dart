@@ -1,5 +1,3 @@
-library info_with_comments;
-
 import 'package:info_with_comments/controllers/manage_comment.dart';
 import 'package:info_with_comments/screens/widgets/comment_display_box.dart';
 import 'package:info_with_comments/screens/widgets/comment_input.dart';
@@ -17,7 +15,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:super_tooltip/super_tooltip.dart';
-
 
 class MessageView extends StatefulWidget {
   MessageView({

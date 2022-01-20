@@ -22,13 +22,6 @@ class ViewImageComment extends StatefulWidget {
 
   @override
   _ViewImageCommentState createState() => _ViewImageCommentState();
-
-   @override
-   void dispose() {
-     // TODO: implement dispose
-     // super.di
-     print('Fuck');
-  }
 }
 
 

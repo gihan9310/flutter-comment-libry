@@ -51,16 +51,16 @@ _dart pub add info_with_comment_
 ## Additional information
 
 *you can can comment with image text &react
-![img.png](img.png)
+![alt text](https://github.com/gihan9310/flutter-comment-libry/blob/main/img.png?raw=true)
 
 * view commented Images
-![img_1.png](img_1.png)
+![alt text](https://github.com/gihan9310/flutter-comment-libry/blob/main/img_1.png?raw=true)
 
 * multiple image can comment
-  ![img_2.png](img_2.png)
+  ![alt text](https://github.com/gihan9310/flutter-comment-libry/blob/main/img_2.png?raw=true)
 
 * you can comment with image & text
-![img_3.png](img_3.png)
+![alt text](https://github.com/gihan9310/flutter-comment-libry/blob/main/img_3.png?raw=true)
 
 
 **create by** : _R.M.E.G.B Rathanayaka_

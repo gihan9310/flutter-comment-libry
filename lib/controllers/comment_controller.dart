@@ -6,4 +6,5 @@ class CommentController extends ManageComment {
 
   Color mainCommentBoxColor  = kBlack;
   bool showBoxShadow =true;
+
 }
